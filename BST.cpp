@@ -19,6 +19,17 @@ node* insert(node* root,int value){
     }
     return root;
 }
+int leaf(node*root){
+    if(root == NULL){
+        return 0;
+    }
+    if(root->left == NULL && root->right == NULL){
+        return 0;
+    } 
+    if(root->left != NULL && root->right != NULL){
+        return 1+leaf(root->left)+leaf(root->right);
+    }
+}
 bool search(node* root,int key){
     if(root == nullptr){
         return false;
